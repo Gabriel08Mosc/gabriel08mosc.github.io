@@ -188,8 +188,7 @@ footer{
   color: white;
   margin-top: 2rem;
 }
-#contact{
-   font-size: 12px;
-   padding: 1rem;
+#contact p{
+   font-size: 14px;
 }
 
