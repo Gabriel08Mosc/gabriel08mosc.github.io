@@ -1,0 +1,264 @@
+/* Reset margin and padding for all elements and set box-sizing to border-box */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles: use Poppins font, set line height, background and text color */
+body{
+  font-family: 'Poppins' , sans-serif;
+  line-height: 1.6;
+  background-color: #1e1e2f; /* Dark blue-ish background */
+  color: #f0f0f0; /* Light text color for contrast */
+}
+
+/* Header styles: dark background, padding, shadow, sticky position on top */
+header{
+  background-color: #121212; /* Very dark background */
+  padding: 0.6rem 0;
+  box-shadow: 0 2px 2px 4px rgba(0,0,0,0.3); /* subtle shadow below header */
+  z-index: 100; /* ensure header stays on top */
+  position: sticky;
+  top: 0; /* stick to top of viewport */
+}
+
+/* Menu toggle button (hamburger) styles - hidden by default */
+.menu_toggle{
+  display: none; /* hidden on large screens */
+  flex-direction: column; /* stack lines vertically */
+  gap: 5px; /* space between lines */
+  cursor: pointer; /* pointer cursor on hover */
+  transition: transform 0.3s ease; /* smooth scaling animation */
+}
+
+/* Hover effect for menu toggle: slightly enlarge */
+.menu_toggle:hover{
+  transform: scale(1.05);
+}
+
+/* Active (pressed) effect for menu toggle: slightly shrink */
+.menu_toggle:active{
+  transform: scale(0.95);
+}
+
+/* Each line of hamburger menu */
+.menu_toggle span{
+  width: 1.7rem;
+  height: 3px;
+  background-color: white; /* white lines */
+  border-radius: 2px; /* rounded edges */
+}
+
+/* Navigation bar styles */
+nav{
+  background-color: #121212; /* match header background */
+  color: white;
+  display: flex; /* horizontal layout */
+  justify-content: space-between; /* space between brand and menu */
+  align-items: center; /* vertically center items */
+  padding: 0rem 2rem; /* horizontal padding */
+}
+
+/* Navbar list styles */
+.navbar{
+  list-style-type: none; /* remove default bullets */
+  display: flex; /* horizontal menu items */
+  gap: 2rem; /* space between items */
+}
+
+/* Navbar links styles */
+.navbar a{
+  text-decoration: none; /* remove underline */
+  transition: background-color 0.3s ease; /* smooth background color transition */
+}
+
+/* Navbar list items styles */
+.navbar a li{
+  color: white; /* white text */
+  text-decoration: none;
+  font-weight: bold; /* bold text */
+  transition: color 0.3s; /* smooth color transition on hover */
+}
+
+/* Navbar list item hover color change */
+.navbar a li:hover{ 
+  color:#00bcd4; /* bright cyan color on hover */
+}
+
+/* Responsive styles for screens smaller than 768px */
+@media (max-width: 768px){
+
+  /* Navbar collapses vertically with max height 0 when inactive */
+  .navbar{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease; /* smooth open/close animation */
+    display: flex;
+    flex-direction: column; /* stack menu items vertically */
+    justify-content: center;
+    gap: 0px; /* no gap between items */
+    background-color: #121212; /* dark background */
+    position: absolute; /* position below header */
+    top: 83px;
+    left: 0;
+    width: 100%; /* full width */
+  }
+
+  /* Navbar open state: max height increased to show menu */
+  .navbar.active {
+    max-height: 500px; /* enough height to show menu */
+    padding-bottom: 10px;
+    padding-top:10px;
+  }
+
+  /* Navbar links take full width and have height for easier touch */
+  .navbar a{
+    height: 40px;
+    width: 100%;
+    padding-left: 2rem;
+    display: flex;
+    align-items:center; /* vertically center text */
+  }
+
+  /* Navbar link hover background change */
+  .navbar a:hover{
+    background-color: #252525; /* slightly lighter background on hover */
+  }
+
+  /* Navbar link active state background */
+  .navbar a:active{
+    background-color: #121212;
+  }
+
+  /* Show the menu toggle button on small screens */
+  .menu_toggle{
+    display: flex;
+  }
+
+  /* Animate hamburger to X when active */
+  .menu_toggle.active span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu_toggle.active span:nth-child(2){
+    opacity: 0; /* hide middle line */
+  }
+  .menu_toggle.active span:nth-child(3){
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* Section styles for spacing and max width */
+.section{
+  scroll-margin-top: 83px; /* offset for sticky header when scrolling */
+  padding: 3rem 1.5rem;
+  max-width: 800px;
+  margin: auto; /* center sections horizontally */
+}
+
+/* Section headers centered and spaced */
+.section h2{
+  margin-bottom: 30px;
+  text-align: center;
+}
+.section h3{
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Paragraph text centered */
+.section p{
+  text-align: center;
+}
+
+/* Skills list styling */
+.skills{
+  list-style: none; /* remove bullets */
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap; /* wrap items to next line */
+  justify-content: center; /* center items */
+  gap: 1rem; /* gap between skills */
+}
+
+/* Individual skill badges */
+.skills li{
+  background: #044191; /* blue background */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* pill shape */
+  font-size: 0.9rem; 
+  transition: transform 0.2s ease, background-color 0.2s ease; /* smooth hover */
+}
+
+/* Hover effect for skills: scale and color change */
+.skills li:hover{
+  transform: scale(1.1);
+  background-color: #0a58ca; /* brighter blue */
+}
+
+/* Projects container: flex with wrapping and centered */
+.projects{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Individual project card styling */
+.project-card{
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #121212;
+  display: flex;
+  flex-direction:column;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3); /* subtle shadow */
+  transition: transform 0.3s ease; /* smooth hover scale */
+}
+
+/* Hover and active effects on project cards */
+.project-card:hover{
+  transform: scale(1.05);
+}
+.project-card:active{
+  transform:scale(0.95);
+}
+
+/* Project images styling */
+.project-img{
+  width: 100%;
+  display: block;
+  object-fit: contain; /* scale images inside container without cropping */
+  transition: transform 0.3s ease;
+}
+
+/* Project info text container */
+.project-info{
+  padding: 0.8rem;
+  text-align: center;
+}
+
+/* Project title */
+.project-info h3{
+  margin: 0;
+  font-size:18px;
+}
+
+/* Project description */
+.project-info p{
+  font-size: 14px;
+  color: #ccc; /* lighter gray text */
+}
+
+/* Footer styles */
+footer{
+  text-align: center;
+  padding:1rem;
+  background-color: #111; /* very dark background */
+  color: white;
+  margin-top: 2rem;
+}
