@@ -259,6 +259,9 @@ nav{
 footer {
   background-color: #111;  /* very dark background */
   color: white;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
   padding: 2rem 1rem;
   text-align: center;
   margin-top: 3rem;
@@ -267,7 +270,12 @@ footer {
 footer section#contact {
   margin-bottom: 1rem;
 }
-
+footerp,
+footer a{
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+}
 footer a {
   color: #00bcd4; 
   text-decoration: none;
